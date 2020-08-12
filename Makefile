@@ -22,6 +22,8 @@ start:
 
 
 
+stop:
+	docker rm -f $$(basename $$PWD) 2> /dev/null || true
 exec:
 	docker exec -it $$(basename $$PWD) bash || true
 
