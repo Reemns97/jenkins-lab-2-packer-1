@@ -21,7 +21,7 @@ pipeline {
   }
   post {
     success {
-        build quietPeriod: 0, wait: false, job: 'rawan-Packer.tf'  
+        build quietPeriod: 0, wait: false, job: 'rawan-Packer'  
     }
   }
 }
