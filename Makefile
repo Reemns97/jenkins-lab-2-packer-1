@@ -6,6 +6,7 @@ init:
 	echo "$$PROJECT_NAME must be set"
 
 start: 
+        sudo systemctl restart docker
 	docker run -it -d \
 		--env TF_NAMESPACE=$$TF_NAMESPACE \
 		--env AWS_PROFILE="kh-labs" \
