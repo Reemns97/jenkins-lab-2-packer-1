@@ -5,7 +5,8 @@ init:
 	echo "$$OWNER must be set"
 	echo "$$PROJECT_NAME must be set"
 
-start:
+start: 
+        sudo chmod 666 /var/run/docker.sock
 	docker run -it -d \
 		--env TF_NAMESPACE=$$TF_NAMESPACE \
 		--env AWS_PROFILE="kh-labs" \
