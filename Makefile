@@ -6,7 +6,6 @@ init:
 	echo "$$PROJECT_NAME must be set"
 
 start: 
-        sudo chmod 666 /var/run/docker.sock
 	docker run -it -d \
 		--env TF_NAMESPACE=$$TF_NAMESPACE \
 		--env AWS_PROFILE="kh-labs" \
@@ -14,7 +13,6 @@ start:
 		--env AWS_SECRET_ACCESS_KEY="$$(sed -n 3p creds/credentials | sed 's/.*=//')" \
 		--env OWNER=$$OWNER \
 		--env PROJECT_NAME=$$PROJECT_NAME \
-		-v /var/run/docker.sock:/var/run/docker.sock \
 		-v $$PWD:/$$(basename $$PWD) \
 		-w /$$(basename $$PWD) \
 		--name $$(basename $$PWD) \
