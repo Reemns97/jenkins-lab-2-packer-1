@@ -29,8 +29,13 @@ spec:
           steps {
               container('packer') {
                   sh 'packer build packer.json'
-              }
-          }
-      }
+   }
+}
+}
+}
+  post {
+    success {
+        build quietPeriod: 0, wait: false, job: 'project-tf'  
+    }
   }
 }
