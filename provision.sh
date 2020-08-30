@@ -40,6 +40,7 @@ echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt
 echo "done"
 
 git clone https://github.com/Reemns97/k8s-jenkins
+cd ./k8s-jenkins
 	    k3d cluster create labs \
 	    -p 80:80@loadbalancer \
 	    -p 443:443@loadbalancer \
